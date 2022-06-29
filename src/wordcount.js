@@ -36,7 +36,7 @@ function init() {
                 if (_) cnt++;
             });
 
-            return new vscode.Hover(`单词数统计\n${cnt}`);
+            if (cnt > 0) return new vscode.Hover(`单词数统计\n${cnt}`);
         },
     });
 }
