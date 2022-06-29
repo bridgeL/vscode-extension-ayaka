@@ -29,6 +29,9 @@ function init() {
             let selection = vscode.window.activeTextEditor.selection;
             let text = document.getText(selection);
 
+            // 排除<xx>yy</xx>标签本身，保留内部yy
+            text = text.replace(/<[^>]+>/g, " ");
+
             // 使用非英文分离
             let items = text.split(/[^a-zA-Z\-]/);
             let cnt = 0;
